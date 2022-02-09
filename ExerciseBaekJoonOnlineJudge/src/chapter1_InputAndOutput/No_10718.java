@@ -1,6 +1,6 @@
 package chapter1_InputAndOutput;
 
-public class WeLoveKriii 
+public class No_10718 
 {
 	public static void main(String[] args)
 	{

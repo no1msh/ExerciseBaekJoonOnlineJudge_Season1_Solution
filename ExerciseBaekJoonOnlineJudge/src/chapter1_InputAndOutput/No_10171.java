@@ -1,6 +1,6 @@
 package chapter1_InputAndOutput;
 
-public class Cat {
+public class No_10171 {
 	public static void main(String[] args) 
 	{
 		System.out.println("\\    /\\");

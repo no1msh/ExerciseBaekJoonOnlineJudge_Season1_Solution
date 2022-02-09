@@ -1,16 +1,17 @@
 package chapter1_InputAndOutput;
 
 import java.util.Scanner;
-public class APlusB 
+public class No_1008 
 {
 	public static void main(String[] args) 
 	{
 		Scanner in = new Scanner(System.in);
+		
 		int A = in.nextInt();
 		int B = in.nextInt();
 		
-		int sum = A + B;
+		double equals = A / (double)B;
 		
-		System.out.print(sum);
+		System.out.print(equals);
 	}
 }

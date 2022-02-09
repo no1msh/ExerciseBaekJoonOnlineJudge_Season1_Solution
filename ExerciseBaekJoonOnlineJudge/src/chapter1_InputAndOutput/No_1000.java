@@ -1,7 +1,7 @@
 package chapter1_InputAndOutput;
 
 import java.util.Scanner;
-public class ATimesB 
+public class No_1000 
 {
 	public static void main(String[] args) 
 	{
@@ -9,9 +9,8 @@ public class ATimesB
 		int A = in.nextInt();
 		int B = in.nextInt();
 		
-		int equals = A * B;
+		int sum = A + B;
 		
-		System.out.print(equals);
+		System.out.print(sum);
 	}
-
 }

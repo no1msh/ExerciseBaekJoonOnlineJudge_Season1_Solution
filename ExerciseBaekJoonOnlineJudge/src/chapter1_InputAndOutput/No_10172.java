@@ -1,6 +1,6 @@
 package chapter1_InputAndOutput;
 
-public class Dog 
+public class No_10172 
 {
 	public static void main(String[] args) 
 	{
