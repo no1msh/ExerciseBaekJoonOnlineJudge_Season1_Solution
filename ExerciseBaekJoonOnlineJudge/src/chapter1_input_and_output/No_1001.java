@@ -1,7 +1,7 @@
-package chapter1_InputAndOutput;
+package chapter1_input_and_output;
 
 import java.util.Scanner;
-public class No_1008 
+public class No_1001 
 {
 	public static void main(String[] args) 
 	{
@@ -10,7 +10,7 @@ public class No_1008
 		int A = in.nextInt();
 		int B = in.nextInt();
 		
-		double equals = A / (double)B;
+		int equals = A - B;
 		
 		System.out.print(equals);
 	}

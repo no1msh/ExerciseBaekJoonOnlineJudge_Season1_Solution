@@ -1,4 +1,4 @@
-package chapter1_InputAndOutput;
+package chapter1_input_and_output;
 
 import java.util.Scanner;
 public class No_10998 
