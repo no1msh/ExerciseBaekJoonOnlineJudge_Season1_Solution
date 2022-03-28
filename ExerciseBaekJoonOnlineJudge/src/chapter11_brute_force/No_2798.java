@@ -1,62 +1,76 @@
 package chapter11_brute_force;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.StringTokenizer;
- 
+
 public class No_2798 {
- 
+
 	public static void main(String[] args) throws IOException {
- 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
- 
-		int[] arr = new int[N];
- 
-		st = new StringTokenizer(br.readLine(), " ");
-		for (int i = 0; i < N; i++) {
-			arr[i] = Integer.parseInt(st.nextToken());
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
+		
+		st= new StringTokenizer(br.readLine());
+		
+		ArrayList<Integer> inputArr = new ArrayList<Integer>();
+		
+		
+		
+		for (int i = 0 ; i < n ; i ++) {
+			int temp = Integer.parseInt(st.nextToken());
+			
+			if (temp < m) inputArr.add(temp); // 원소 3개를 합한 값을 m보다 작게 맞추는거기 때문에 m을 넘는 수를 미리 없애줍니다.
 		}
 		
-		int result = search(arr, N, M);
-		System.out.println(result);
-	}
- 
-	
-	// 탐색
-	static int search(int[] arr, int N, int M) {
-		int result = 0;
- 
-		// 3개를 고르기 때문에 첫번째 카드는 N - 2 까지만 순회
-		for (int i = 0; i < N - 2; i++) {
- 
-			// 두 번째 카드는 첫 번째 카드 다음부터 N - 1 까지만 순회
-			for (int j = i + 1; j < N - 1; j++) {
- 
-				// 세 번째 카드는 두 번째 카드 다음부터 N 까지 순회
-				for (int k = j + 1; k < N; k++) {
+		inputArr.sort(Comparator.reverseOrder()); // 내림 차순으로 정렬 해줍니다.
+		
+		
+		
+		int sum = 0;
+		int num1 = 0;
+		int num2 = 0;
+		int num3 = 0;
+		
+		forA:
+		for (int a = 0; a < inputArr.size() ; a++ ) {
+			
+			num1 = inputArr.get(a);
+			
+			forB:
+			for (int b =0 ; b < inputArr.size(); b++) {
+				
+				if ( a == b) continue forB; // a로 뽑힌 카드는 제외 하고 b를 뽑습니다.
+				
+				num2 = inputArr.get(b);
+				
+				if ( num1 + num2 > m) continue forB;
+				
+				forC:
+				for (int c = 0; c < inputArr.size() ; c++) {
+					if ( a == c || b == c) continue forC; // a나 b로 뽑힌 카드는 제외하고 c를 뽑습니다.
 					
-					// 3개 카드의 합 변수 temp
-					int temp = arr[i] + arr[j] + arr[k];
+					num3 = inputArr.get(c);
 					
-					// M과 세 카드의 합이 같다면 temp return 및 종료 
-					if (M == temp) {	
-						return temp;
+					if (num1 + num2 + num3 > m) continue forC;
+					
+					else if (num1 + num2 + num3 == m) {
+						
+						sum = num1 + num2 + num3 ;
+						
+						break forA;
 					}
 					
-					// 세 카드의 합이 이전 합보다 크면서 M 보다 작을 경우 result 갱신 
-					if(result < temp && temp < M) {
-						result = temp;
-					}
+					else if ( m - (num1 + num2 + num3) < m - sum)
+						sum = num1 + num2 + num3;
+					
 				}
 			}
 		}
-		
-		// 모든 순회를 마치면 result 리턴 
-		return result;
+		System.out.print(sum);
 	}
 }
