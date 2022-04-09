@@ -14,7 +14,7 @@ public class No_1181 {
  
 		int N = Integer.parseInt(br.readLine());
  
-		String[] arr = new String[N];
+		String[] arr = new String[N]; 
  
 		for (int i = 0; i < N; i++) {
 			arr[i] = br.readLine();
